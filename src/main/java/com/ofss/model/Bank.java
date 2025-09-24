@@ -9,7 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 @Data
 @Table(name = "BANK")
-//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Bank {
     
     @Id

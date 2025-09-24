@@ -1,26 +1,22 @@
 package com.ofss.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseEntityDto {
-    private String code;
+    private String status;
     private String message;
     private Object data;
 
-    public ResponseEntityDto(String code, String message) {
-        this.code = code;
+    // Constructor for responses without data
+    public ResponseEntityDto(String status, String message) {
+        this.status = status;
         this.message = message;
     }
-
-    public ResponseEntityDto(String code, String message, Object data) {
-        this.code = code;
-        this.message = message;
-        this.data = data;
-    }
-
-    // getters and setters
 }
-
