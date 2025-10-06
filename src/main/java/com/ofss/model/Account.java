@@ -1,5 +1,6 @@
 package com.ofss.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -10,6 +11,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "ACCOUNT")
 public class Account {
     
@@ -18,8 +20,8 @@ public class Account {
     @Column(name = "ACCOUNT_NUMBER")
     private Long accountNumber;
     
-    @Column(name = "ACCOUNT_CREATION_DATE", nullable = false)
-    private LocalDate accountCreationDate;
+    @Column(name = "ACCOUNT_CREATION_DATE",updatable = false)
+    private LocalDate accountCreationDate = LocalDate.now(); // Default to current date
     
     @Column(name = "ACCOUNT_TYPE", length = 20)
     private String accountType;

@@ -6,8 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseEntityDto {
     private String status;
@@ -18,5 +16,10 @@ public class ResponseEntityDto {
     public ResponseEntityDto(String status, String message) {
         this.status = status;
         this.message = message;
+    }
+    public ResponseEntityDto(String status, String message, Object data) {
+        this.status = status;
+        this.message = message;
+        this.data = data;
     }
 }
